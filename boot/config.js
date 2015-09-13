@@ -23,6 +23,8 @@ module.exports = function(app) {
 	require(app.path.resolve(app.basePath + '/app/controllers/index.js'))(app);
 	require(app.path.resolve(app.basePath + '/app/controllers/api.js'))(app);
 	
+	
+	
 };
 
 
