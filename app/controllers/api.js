@@ -18,10 +18,19 @@ module.exports = function(app) {
 					});
 					return;
 				}
+				
+				app.inspect({
+					fields: fields,
+					files: files
+				});
 			});
+			
+			
 			
 			form.on('end', function(fields, files) {
 				// tmp path
+				
+				
 				var srcPath = this.openedFiles[0].path;
 				console.log('TMP IMG PATH ' + srcPath);
 				
