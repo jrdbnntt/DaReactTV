@@ -8,22 +8,16 @@ module.exports = function(app) {
 	var urlencodedParser = bodyParser.urlencoded({extended: false});
 	
 	// Main page for DVR
-	app.get('/', function(req, res) {
-		res.sendFile(app.basePath + '/public/index.html');
-	});
+	app.get('/', app.controllers.IndexController.index);
 	
-	app.get('/editShows', function(req, res) {
-		res.sendFile(app.basePath + '/public/editShows.html');
-	});
+	app.get('/editShows', app.controllers.IndexController.editShows);
 	
 	
 	
 	/**
 	 * API
 	 */
-	app.post('/api/upload', urlencodedParser, function(req, res) {
-		// console.log(req)
-	});
+	app.post('/api/uploadImage', urlencodedParser, app.controllers.APIController.uploadImage);
 	
 	
 	// 404
