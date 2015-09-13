@@ -51,7 +51,7 @@ module.exports = function(app) {
 				events: req.body.events
 			};
 			app.show = show;
-			
+			console.log(JSON.stringify(show));
 			app.inspect(show);
 			console.log('WAITING FOR EMISSIONS...');
 			var i;
