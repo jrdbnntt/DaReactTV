@@ -215,7 +215,10 @@
 	
 	$.each(reactionEvents, function(i, ev) {
 		// wait(100)
-		playEvent(ev);
+		setInterval(function(){
+			playEvent(ev);	
+		}, 10000);
+		
 	});
 	
 	
