@@ -16,7 +16,7 @@ body {
 	height: 90%;
 	margin-left: 5%;
 	margin-top: 5%;
-	background-color: rgba(0,0,0,0.05);
+	/*background-color: rgba(0,0,0,0.05);*/
 }
 .thumb {
 	position: absolute;
@@ -30,6 +30,6 @@ body {
 	height: 50%;
 	top: 25%;
 	left: 25%;
-	background-color: #AAA;
+	/*background-color: #AAA;*/
 	opacity: 0.8;
 }

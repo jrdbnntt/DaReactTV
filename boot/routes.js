@@ -21,7 +21,9 @@ module.exports = function(app) {
 	/**
 	 * API
 	 */
-	app.get('/');
+	app.post('/api/upload', urlencodedParser, function(req, res) {
+		// console.log(req)
+	});
 	
 	
 	// 404
