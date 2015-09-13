@@ -24,7 +24,7 @@ module.exports = function(app) {
 	 * API
 	 */
 	app.post('/api/uploadImage', app.controllers.APIController.uploadImage);
-	app.post('/api/setShow', app.controllers.APIController.setShow);
+	app.post('/api/setShow', jsonParser, app.controllers.APIController.setShow);
 	
 	// 404
 	app.get('*', function(req, res) {
