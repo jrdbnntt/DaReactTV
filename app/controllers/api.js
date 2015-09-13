@@ -58,8 +58,8 @@ module.exports = function(app) {
 			var shoot = function(i) {
 				app.waitAsync(show.events[i].waitTime)
 				.then(function(){
-					console.log('SOCKET EMIT: eventId:' + show.events[i].eventId);
-					app.socket.emit('takePic', show.events[i].eventId);
+					console.log('SOCKET EMIT: eventId:' + show.events[i].id);
+					app.socket.emit('takePic', show.events[i].id);
 				});
 			};
 			
