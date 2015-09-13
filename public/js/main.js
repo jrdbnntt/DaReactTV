@@ -202,20 +202,21 @@
 	};
 		
 	// Load all event data
-	$.each(reactionEvents, function(i, ev) {
-		// Get images
-		ev.html = $('<div></div>');
-		
-		$.each(ev.imageIds, function(i, imageId) {
-			ev.html.append('<img class="thumb" src="'+getImageUrl(imageId)+'">');
-		});
-		
-	});
 	
 	
 	$.each(reactionEvents, function(i, ev) {
 		// wait(100)
 		setInterval(function(){
+			$.each(reactionEvents, function(i, ev) {
+				// Get images
+				ev.html = $('<div></div>');
+				
+				$.each(ev.imageIds, function(i, imageId) {
+					ev.html.append('<img class="thumb" src="'+getImageUrl(imageId)+'">');
+				});
+				
+			});
+			
 			playEvent(ev);	
 		}, 10000);
 		
