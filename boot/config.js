@@ -2,10 +2,15 @@
 var express = require('express');
 var path = require('path');
 var morgan = require('morgan');
+var formidable = require('formidable');
+var fs = require('fs-extra');
+var Q = require('q');
 
 module.exports = function(app) {
 	app.path = path;
-	
+	app.formidable = formidable;
+	app.fs = fs;
+	app.Q = Q;
 	
 	app.basePath = app.path.resolve(__dirname + '/../');
 	app.set('port', process.env.PORT || 4005);
