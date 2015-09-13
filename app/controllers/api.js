@@ -3,7 +3,8 @@ module.exports = function(app) {
 	
 	app.controllers.APIController = {
 		uploadImage: function(req, res) {
-			console.log(req.body);
+			console.log(req);
+			
 			var input = null;
 			var form = new app.formidable.IncomingForm();
 			
