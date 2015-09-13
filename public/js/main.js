@@ -22,7 +22,7 @@
 
 			for(var eventId in eventsRef) {
 				var data = eventsRef[eventId];
-				events.push({id: eventId, waitTime:  data.eventTime + showInfo.offset });
+				events.push({id: eventId, waitTime:  data.eventTime - showInfo.offset });
 				reactionEvents.push({
 					start: data.eventTime,
 					delay: data.delay,
@@ -31,7 +31,7 @@
 					imageIds: data.images
 				});
 			}
-			console.log({showId: showInfo.uniqueId, events: events });
+
 	 		$.ajax({
 	 			method: 'POST',
 	 			contentType: 'application/json',
