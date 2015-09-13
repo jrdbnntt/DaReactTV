@@ -16,11 +16,20 @@ var io = sio.listen(server);
 
 io.on('connection', function(socket) {
 	socket.on('webcam', function(data) {
-		// var buffer = new Buffer(data.slice(23), 'base64');
+		var buffer = new Buffer(data.slice(22), 'base64');
 		console.log('upload');
-		app.fs.writeFile('/tmp/test.png', data, function(err){
+		app.fs.writeFile(app.path.resolve(app.basePath + 'public/img/static/test.png'), buffer, function(err){
 			console.log('done ' + err);
 			
 		});
+	});
+	
+	socket.on('tv-start', function(data) {
+		// data.showId
+		// 
+
+		// socket.emit('')
+		
+		
 	});
 });
