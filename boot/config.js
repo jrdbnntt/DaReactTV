@@ -29,7 +29,7 @@ module.exports = function(app) {
 	
 	
 	app.waitAsync = function(seconds) {
-		var dfd = app.Q.deferred();
+		var dfd = app.Q.defer();
 		
 		setTimeout(function(){
 			dfd.resolve();
