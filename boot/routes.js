@@ -16,7 +16,13 @@ module.exports = function(app) {
 		res.sendFile(app.basePath + '/public/editShows.html');
 	});
 	
+	app.get('/testingFirebase', function(req, res) {
+		res.sendFile(app.basePath + '/public/testingFirebase.html');
+	});
 	
+	app.get('/queryingFirebase', function(req, res) {
+		res.sendFile(app.basePath + '/public/queryingFirebase.html');
+	});
 	
 	/**
 	 * API
