@@ -43,6 +43,28 @@ module.exports = function(app) {
 				res.json({});
 				
 			});
-		}
+		},
+		
+		setShow: function(req, res) {
+			var show = {
+				showId: req.body.showId,
+				events: req.body.events
+			};
+			app.show = show;
+			var i;
+			var shoot = function(i) {
+				app.waitAsync(show.events[i].waitTime)
+				.then(function(){
+					console.log('SOCKET EMIT: eventId:' + show.events[i].eventId);
+					app.socket.emit('takePic', show.events[i].eventId);
+				});
+			};
+			
+			for(i = 0; i < show.events.length; ++i) {
+				shoot(i);
+			}
+			
+			res.json({});
+		}		
 	};
 };
