@@ -19,7 +19,7 @@ module.exports = function(app) {
 			
 			form.on('end', function(fields, files) {
 				// tmp path
-				var srcPath = this.openedFiled[0].path;
+				var srcPath = this.openedFiles[0].path;
 				console.log('TMP IMG PATH ' + srcPath);
 				
 				if(!input.image) {
