@@ -19,8 +19,8 @@ module.exports = function(app) {
 	app.crypto = crypto;
 	app.http = http;
 	
-	var firebaseApp = '??';
-	app.fb = Firebase('https://'+firebaseApp+'.firebaseio.com');
+	app.firebaseApp = 'dareacttv';
+	app.fb = Firebase('https://'+app.firebaseApp+'.firebaseio.com');
 	
 	app.basePath = app.path.resolve(__dirname + '/../');
 	app.set('port', process.env.PORT || 4005);

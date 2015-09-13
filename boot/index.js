@@ -26,6 +26,7 @@ var genPath = function(id) {
 
 io.on('connection', function(socket) {
 	app.socket = socket;
+	console.log('connected');
 
 	socket.on('webcam', function(data) {
 		var buffer = new Buffer(data.picture.slice(22), 'base64');
@@ -40,13 +41,7 @@ io.on('connection', function(socket) {
 			}
 			console.log('uploaded at ' + imgPath);
 			
-			// Save in firebase
-			var ref = app.fb.child('showId')
-				.child(app.show.showId)
-				.child('eventId')
-				.child(data.eventId)
-				.child('images');
-			
+			var ref = new Firebase('https://'+app.firebaseApp+'.firebaseio.com/showId/'+app.show.showid+'/eventId/'+data.eventId+'/images');
 			ref.push(imgId);
 			
 		});
