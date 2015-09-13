@@ -13,9 +13,8 @@ if (!!navigator.setWebSecurityEnabled){
 }
 
 function keyHandler(e){
-	var code = e.keyCode
-		, container = document.getElementById('key-down');
-
+	var code = e.keyCode;
+	
 	//Don't for get to put a BREAK after every case OR it will 
 	//Fall through like it does below.
 	switch(code){
@@ -53,7 +52,7 @@ function keyHandler(e){
 		case 47: //back
 		case 189 : //dash
 		default :
-		container.innerHTML = code;
+			// updateState();
 		break;
 	}
 

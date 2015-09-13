@@ -157,6 +157,9 @@
 	 * Event handling
 	 */
 	
+	var dvrPaused, eventTimers;
+	
+	
 	// run single event
 	var playEvent = function(reactionEvent) {
 		console.log(reactionEvent);
@@ -198,7 +201,7 @@
 		});
 	};
 		
-	// Call all events
+	// Load all event data
 	$.each(reactionEvents, function(i, ev) {
 		// Get images
 		ev.html = $('<div></div>');
@@ -207,7 +210,14 @@
 			ev.html.append('<img class="thumb" src="'+getImageUrl(imageId)+'">');
 		});
 		
+	});
+	
+	
+	$.each(reactionEvents, function(i, ev) {
 		// wait(100)
 		playEvent(ev);
-	});	
+	});
+	
+	
+		
 })();

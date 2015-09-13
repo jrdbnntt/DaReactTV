@@ -1,7 +1,7 @@
 {
-  "name": "sample_app",
-  "version": "1.0.0",
-  "description": "Sample App - Hackathon - Directv",
+  "name": "DaReactTV",
+  "version": "0.1.0",
+  "description": "TV reactions on TV",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -9,11 +9,12 @@
   },
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/jrdbnntt/DaReactTV"
   },
-  "author": "DIRECTV",
-  "license": "ISC",
+  "author": "",
+  "license": "MIT",
   "dependencies": {
+    "body-parser": "^1.13.3",
     "express": "^4.13.3"
   }
 }
