@@ -9,8 +9,10 @@ module.exports = function(app) {
 			var form = new app.formidable.IncomingForm();
 			
 			form.parse(req, function(err, fields, files) {
+				app.inspect(files);
 				input = fields;
 				if(err) {
+					console.log(err);
 					res.json({
 						err: err
 					});
@@ -29,6 +31,7 @@ module.exports = function(app) {
 					});
 					return;
 				}
+				res.json({});
 				
 			});
 		}
