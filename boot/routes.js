@@ -12,7 +12,13 @@ module.exports = function(app) {
 	
 	app.get('/editShows', app.controllers.IndexController.editShows);
 	
+	app.get('/testingFirebase', function(req, res) {
+		res.sendFile(app.basePath + '/public/testingFirebase.html');
+	});
 	
+	app.get('/queryingFirebase', function(req, res) {
+		res.sendFile(app.basePath + '/public/queryingFirebase.html');
+	});
 	
 	/**
 	 * API
