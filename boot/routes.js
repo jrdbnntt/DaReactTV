@@ -23,7 +23,7 @@ module.exports = function(app) {
 	/**
 	 * API
 	 */
-	app.post('/api/uploadImage', urlencodedParser, app.controllers.APIController.uploadImage);
+	app.post('/api/uploadImage', app.controllers.APIController.uploadImage);
 	
 	
 	// 404
