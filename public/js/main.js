@@ -202,7 +202,12 @@
 	};
 		
 	// Load all event data
+	
+	
+	
 	$.each(reactionEvents, function(i, ev) {
+		// wait(100)
+		$.each(reactionEvents, function(i, ev) {
 		// Get images
 		ev.html = $('<div></div>');
 		
@@ -211,10 +216,6 @@
 		});
 		
 	});
-	
-	
-	$.each(reactionEvents, function(i, ev) {
-		// wait(100)
 		playEvent(ev);
 	});
 	
