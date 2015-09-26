@@ -1,15 +1,47 @@
 (function(){
 	
 	var initialTime = new Date();
-	
-	// EXMPLE DATA
-	var reactionEvents = [{
-		start: 10000,
-		delay: 1000,
-		showPeriod: 1000,
-		maxAmount: 6,
-		imageIds: [1,2,3,4,5,6]
-	}];
+	var showInfo;
+	var showRef;
+
+	var events = [];
+	var showId = '';
+
+		// EXMPLE DATA
+	var reactionEvents = [];
+
+
+	$.get('http://35.2.93.206:8080/tv/getTuned')
+	.then(function(data) {
+		// var dfd = $.Deferred();
+		showInfo = data;
+		showRef = new Firebase("https://dareacttv.firebaseio.com/showId/"+ showInfo.uniqueId +"/eventId");
+		
+		showRef.on('value', function(snapshot) {
+			var eventsRef = snapshot.val();
+
+			for(var eventId in eventsRef) {
+				var data = eventsRef[eventId];
+				events.push({id: eventId, waitTime:  data.eventTime - showInfo.offset });
+				reactionEvents.push({
+					start: data.eventTime,
+					delay: data.delay,
+					showPeriod: data.showPeriod,
+					maxAmount: data.maxAmount,
+					imageIds: data.images
+				});
+			}
+
+	 		$.ajax({
+	 			method: 'POST',
+	 			contentType: 'application/json',
+				url: 'http://dareacttv.co/api/setShow',
+				data: JSON.stringify({showId: showInfo.uniqueId, events: events })
+			});
+		});
+	})
+
+
 	
 	var cont = $('.thumb-container');
 	var tBarWidth = cont.width() * 0.25;
@@ -37,7 +69,7 @@
 	
 	// Constructs static image location
 	var getImageUrl = function(id) {
-		return '/img/doge' + id + '.png';
+		return '/img/static/' + id + '.png';
 	};
 	
 	
@@ -219,7 +251,7 @@
 			
 			playEvent(ev);	
 		}, 10000);
-		
+
 	});
 	
 	
